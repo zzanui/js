@@ -12,8 +12,10 @@ function saveToDos(){
 
 function deleteToDo(event){
     const li = event.target.parentElement
-    localStorage.removeItem(TODOS_KEY,li.id)
     li.remove()
+    toDos = toDos.filter((toDo) => toDo.id !== parseInt(li.id))
+    saveToDos()
+ 
     
 }
 
